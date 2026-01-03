@@ -43,6 +43,11 @@ All colors MUST be HSL.
     --gradient-elegant: linear-gradient(135deg, hsl(355, 70%, 45%), hsl(355, 50%, 35%));
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* CTA Button Glow Effect */
+    --cta-glow: 355 80% 55%;
+    --cta-gradient-start: 355 70% 50%;
+    --cta-gradient-end: 40 85% 55%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -91,6 +96,11 @@ All colors MUST be HSL.
     --ring: 355 70% 50%;
     
     --hero-overlay: 355 70% 15%;
+    
+    /* CTA Button Glow Effect */
+    --cta-glow: 355 80% 60%;
+    --cta-gradient-start: 355 70% 55%;
+    --cta-gradient-end: 40 85% 60%;
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;

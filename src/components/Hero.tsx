@@ -25,13 +25,14 @@ const Hero = () => {
         <p className="text-xl md:text-2xl mb-8 text-white/90 font-light">
           Where tradition meets innovation in every dish
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex gap-6 justify-center flex-wrap">
           <Button 
+            variant="cta"
             size="lg" 
             onClick={scrollToReservations}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6"
+            className="text-lg px-10 py-7 rounded-full"
           >
-            Reserve a Table
+            <span>Reserve a Table</span>
           </Button>
           <Button 
             size="lg" 
