@@ -3,7 +3,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 const Reservations = () => {
   const [formData, setFormData] = useState({
@@ -15,33 +14,11 @@ const Reservations = () => {
     guests: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const { error } = await supabase.from("reservations").insert({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        guests: parseInt(formData.guests),
-        reservation_date: formData.date,
-        reservation_time: formData.time,
-        message: formData.message || null,
-      });
-
-      if (error) throw error;
-
-      toast.success("Reservation request received! We'll contact you shortly to confirm.");
-      setFormData({ name: "", email: "", phone: "", date: "", time: "", guests: "", message: "" });
-    } catch (error) {
-      console.error("Error submitting reservation:", error);
-      toast.error("Failed to submit reservation. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast.success("Reservation request received! We'll contact you shortly to confirm.");
+    setFormData({ name: "", email: "", phone: "", date: "", time: "", guests: "", message: "" });
   };
 
   return (
@@ -124,13 +101,8 @@ const Reservations = () => {
             />
           </div>
 
-          <Button 
-            type="submit" 
-            size="lg" 
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Submitting..." : "Request Reservation"}
+          <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            Request Reservation
           </Button>
         </form>
       </div>
